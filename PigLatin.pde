@@ -51,6 +51,14 @@ public String pigLatin(String sWord)
 	if(qu(sWord)){
 		String removedQU = new String(sWord.substring(2, sWord.length() - 1));
 		return removedQU + "qu" + "ay";
+	}
+	//for words that begin with consonants, move the consonants to the end of the word and add ay
+	if(findFirstVowel(sWord) != 0){
+		String cut = new String(sWord.substring(findFirstVowel(sWord), sWord.length()));
+		for(int i = 0; i < findFirstVowel(sWord); i++){
+			cut += sWord.charAt(i); 
+		}
+		return cut + "ay";
 	}else{
 		return "ERROR!";
 	}
